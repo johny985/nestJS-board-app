@@ -27,7 +27,7 @@ export class AuthController {
   ): Promise<{ accessToken: string }> {
     return this.authService.signIn(authCredentialsDto);
   }
-  // UserGuards는 인증 미들웨어
+  // UseGuards는 인증 미들웨어
   @Post('/authTest')
   @UseGuards(AuthGuard())
   authTest(@Req() req) {
