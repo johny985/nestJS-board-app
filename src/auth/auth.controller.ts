@@ -9,6 +9,8 @@ import {
 import { AuthGuard } from '@nestjs/passport';
 import { AuthService } from './auth.service';
 import { AuthCredentialsDto } from './dto/auth-credential.dto';
+import { GetUser } from './get-user.decorator';
+import { User } from './user.entity';
 
 @Controller('auth')
 export class AuthController {
@@ -30,7 +32,7 @@ export class AuthController {
   // UseGuards는 인증 미들웨어
   @Post('/authTest')
   @UseGuards(AuthGuard())
-  authTest(@Req() req) {
-    console.log(req);
+  authTest(@GetUser() user: User) {
+    console.log(user);
   }
 }
