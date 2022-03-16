@@ -26,6 +26,7 @@ import { BoardStatusValidationPipe } from './pipes/board-status-validation.pipe'
 export class BoardsController {
   private logger = new Logger('BoardsController');
   constructor(private boardsService: BoardsService) {}
+
   @Get()
   getAllBoards(@GetUser() user: User): Promise<Board[]> {
     this.logger.verbose(`User ${user.username} trying to get all boards`);
